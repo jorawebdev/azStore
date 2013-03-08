@@ -1,0 +1,38 @@
+- if user_signed_in?
+  %table{:width => '900px', :border => '1', :cellspacing => '0', :cellpadding => '0'}
+    %tr
+      %td{:colspan => '2', :valign => 'top'}
+        I'm 900px
+    %tr
+      %td{:valign => 'top', :width => '208px'}
+        I'm 208px
+      %td{:valign => 'top', :width => '692px'}
+        I'm 692px
+    %tr
+      %td{:valign => 'top'}
+        %strong My calendars:
+        %br
+          - @calendars.each do |calendar|
+            = check_box(:calendar, calendar)
+            = link_to calendar.x_wr_calname, calendar
+            (#{calendar.events.count})
+            %br
+        %i (Check the box to display)
+      %td{:valign => 'top'}
+        = image_tag('fc_dummy.png')
+-else
+  Like the Rosetta Stone,
+  %strong
+    ZettaCal
+  translates between other calendars
+  %br
+  Like the ZettaByte,
+  %strong
+    ZettaCal
+  is a very very big thing
+  
+  %div{:id => "calendar"}
+
+
+
+
